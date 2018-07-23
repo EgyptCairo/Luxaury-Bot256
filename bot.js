@@ -16,12 +16,31 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-    if (message.content.startsWith("%bans")) {
-        message.guild.fetchBans()
-        .then(bans => message.channel.send(`${bans.size} **bans List.** `))
-  .catch(console.error);
-}
+
+
+
+
+
+  client.on('message', async message => {
+  let messageArray = message.content.split(' ');
+  let args = messageArray.slice(1);
+  if(message.content.startsWith(prefix + "invite")) {
+    if(!args) return message.reply('**حدد اسم دعوة**');
+    message.guild.fetchInvites().then(i => {
+      let inv = i.get(args[0]);
+      if(!inv) return message.reply(`**لم اقدر على ايجاد ${args}**`);
+      var iNv = new Discord.RichEmbed()
+      .setAuthor(message.author.username,message.author.avatarURL)
+      .setThumbnail(message.author.avatarURL)
+      .addField('# - صاحب الدعوة',inv.inviter,true)
+      .addField('# - روم الدعوة',inv.channel,true)
+      .addField('# - تاريخ انتهاء الدعوة',moment(inv.expiresAt).format('YYYY/M/DD:h'),true)
+      .addField('# - تم انشاء الدعوة',moment(inv.createdAt).format('YYYY/M/DD:h'),true)
+      .addField('# - مدة الدعوة',moment(inv.maxAge).format('DD **ساعة** h **يوم**'),true)
+      .addField('# - الاستخدامات',inv.uses || inv.maxUses,true)
+      message.channel.send(iNv);
+    });
+  }
 });
 
 
@@ -156,7 +175,33 @@ client.on('message', message => {
 
 
 
+  const math = require('math-expression-evaluator');
+const stripIndents = require('common-tags').stripIndents;
 
+client.on('message', msg => {
+if (msg.content.startsWith(prefix + 'cal')) {
+  let args = msg.content.split(" ").slice(1);
+      const question = args.join(' ');
+  if (args.length < 1) {
+      msg.reply('**من فضلك .. قم بكتابة سؤال **.');
+} else {    let answer;
+  try {
+      answer = math.eval(question);
+  } catch (err) {
+      return msg.reply(`Error: ${err}`);
+  }
+
+  const embed = new Discord.RichEmbed()
+  .setThumbnail('https://banner2.kisspng.com/20180215/ade/kisspng-office-supplies-animation-calculator-5a85e764e3aa68.4914103215187249649325.jpg')
+.setDescription(`**
+ السؤال يقولك :thinking:  : ${question}
+
+ طبعا الاجابة :writing_hand: : ${answer}**
+`)
+  msg.channel.send(embed)
+  }
+};
+});
 
 
 
