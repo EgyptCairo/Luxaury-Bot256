@@ -17,7 +17,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if (message.content.startsWith("-bans")) {
+    if (message.content.startsWith("%bans")) {
         message.guild.fetchBans()
         .then(bans => message.channel.send(`${bans.size} **bans List.** `))
   .catch(console.error);
