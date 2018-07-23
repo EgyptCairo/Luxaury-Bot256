@@ -6,11 +6,10 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === 'Luxary') {
+    if (message.content === 'Luxury') {
         message.reply('ماهو لوكسري بوت؟ , لوكسري بوت هو البوت العربي الأفضل على الساحة , يتوفر فية ميوزك , مانع الهكر  , 24 ساعة , والعاب , يرجى اضافتة الى السيرفر الخاص بكم , وشكراَ');
       }
 });
-
 
 
 
