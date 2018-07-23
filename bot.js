@@ -18,6 +18,7 @@ client.on('message', message => {
 
 
 
+
   client.on('message', async message => {
   let messageArray = message.content.split(' ');
   let args = messageArray.slice(1);
