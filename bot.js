@@ -337,7 +337,7 @@ const Love = [  "**احبك / عدد قطرات المـــطر والشجر و
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
  .addField('حب' ,
- .addFotter('حب' ,
+ .setFooter('Luxury Bot.')
   `${Love[Math.floor(Math.random() * Love.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
