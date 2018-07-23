@@ -16,7 +16,6 @@ client.on('message', message => {
 
 
 
-
 const developers = ["418064523157700609","418064523157700609",""]
 const adminprefixe = "%";
 client.on('message', message => {
