@@ -1,1 +1,1 @@
-worker: node Luxary.js
+worker: node bot.js
