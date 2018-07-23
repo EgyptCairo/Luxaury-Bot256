@@ -24,7 +24,7 @@ client.on('message', message => {
             var Canvas = module.require('canvas');
             var jimp = module.require('jimp');
     
-     const w = ['./ID1.png'];
+     const w = ['./ID5.png'];
     
              let Image = Canvas.Image,
                  canvas = new Canvas(802, 404),
