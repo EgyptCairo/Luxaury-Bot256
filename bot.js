@@ -12,16 +12,6 @@ client.on('ready', () => {
 
 
 
- const child_process = require("child_process");
-  client.on('ready' , function (){
-var time = 7200000;
-client.setInterval(function() {
-    client.destroy();
-        child_process.fork(__dirname + "/bot.js");
-  }, time);
-});
-
-
 
 client.on('message', msg => {
 if  (msg.content === '%help') {
