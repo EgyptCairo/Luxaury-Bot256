@@ -10,7 +10,6 @@ client.on('ready', () => {
 });
 
 
-
 client.on('message', msg => {
 if  (msg.content === '%help') {
     const slamat = new Discord.RichEmbed()
